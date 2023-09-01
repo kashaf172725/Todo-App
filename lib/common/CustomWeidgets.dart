@@ -8,6 +8,7 @@ Widget CustomText({
   var fontSize,
   var fontWeight,
   var color,
+ 
 }) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
@@ -17,7 +18,7 @@ Widget CustomText({
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: color,
-       
+      
       ),
     ),
   );
@@ -56,43 +57,28 @@ Widget CustomButton(
   );
 }
 
+Widget CustomContainer({ taskname,var onTap}){
 
-Widget CustomTextFeild(var heading,var controller, {isObsecure = false}) {
   return Padding(
-    padding: const EdgeInsets.all(8),
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: MyColors.white,
-      ),
-      width: double.infinity,
-      padding: EdgeInsets.all(20),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Container(
-          height: 18,
-          child: TextField(
-            controller:  controller,
-            obscureText: isObsecure,
-            decoration: InputDecoration(
-              hintText:heading,
-              border: InputBorder.none,
+        padding: const EdgeInsets.only(top: 25.0, left: 25, right: 25),
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+              padding: EdgeInsets.all(24),
+              child: Row(
+                children: [
+                  Text(
+                    taskname,
+                   
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                  color: MyColors.Yellow,
+                  borderRadius: BorderRadius.circular(12)),
             ),
-            style: TextStyle(
-              fontSize: 15,
-            ),
-          ),
-        )
-      ]),
-    ),
-  );
-}
-Widget CustomContainer(){
-
-  return Container(
-    height: double.infinity,width: double.infinity,
-decoration: BoxDecoration(image: DecorationImage(image:  NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDDhaJB0U2km_YppwpJXLyTtyxnDUqX47f6A&usqp=CAU"),fit: BoxFit.fill))
-
-  );
+        ),
+        );
    }
 
 
