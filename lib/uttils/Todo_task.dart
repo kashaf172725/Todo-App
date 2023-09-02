@@ -9,23 +9,28 @@ class Todo_Task extends StatelessWidget {
   final bool taskCompleted;
   final Function(bool?)? onChanged;
   final Function(BuildContext)? deleteFunction;
-
-  Todo_Task(
-      {super.key,
-      required this.deleteFunction,
-      required this.taskname,
-      required this.taskCompleted,
-      required this.onChanged});
+ // final bool color;
+  
+  Todo_Task({super.key,
+    required this.deleteFunction,
+    required this.taskname,
+    required this.taskCompleted,
+    required this.onChanged,
+    // required this.color,
+    
+    });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(top: 25.0, left: 25, right: 25),
         child: Slidable(
+        
           endActionPane: ActionPane(
             motion: StretchMotion(),
             children: [
               SlidableAction(
+                
                 onPressed: deleteFunction,
                 icon: Icons.delete,
                 borderRadius: BorderRadius.circular(12),
@@ -34,7 +39,8 @@ class Todo_Task extends StatelessWidget {
             ],
           ),
           child: Container(
-            padding: EdgeInsets.all(24),
+            
+            padding: const EdgeInsets.all(24),
             child: Row(
               children: [
                 //check box
@@ -53,10 +59,12 @@ class Todo_Task extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
+              
+              
               ],
             ),
             decoration: BoxDecoration(
-                color: MyColors.Yellow,
+                color: MyColors.Blue,
                 borderRadius: BorderRadius.circular(12)),
           ),
         ));

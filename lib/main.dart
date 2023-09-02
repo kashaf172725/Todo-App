@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/view/pages/Inbox.dart';
+import 'package:flutter_application_1/view/menu.dart';
 
-import 'package:flutter_application_1/view/pages/menu.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
         debugShowCheckedModeBanner: false,
-           theme: ThemeData(primarySwatch: Colors.yellow,),
+           theme: ThemeData(primarySwatch: Colors.brown,),
            home: Menu() 
+          // home: InboxScreen()
       
     );
     

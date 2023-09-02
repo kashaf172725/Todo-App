@@ -14,6 +14,7 @@ Widget CustomText({
     padding: const EdgeInsets.all(8.0),
     child: Text(
       text,
+      textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
@@ -74,12 +75,23 @@ Widget CustomContainer({ taskname,var onTap}){
                 ],
               ),
               decoration: BoxDecoration(
-                  color: MyColors.Yellow,
+                  color: MyColors.Blue,
                   borderRadius: BorderRadius.circular(12)),
             ),
         ),
         );
    }
 
-
+Widget CustomListTile(var title,var subtitle,context,var route,var icon,var iconColor){
+  return ListTile(
+              splashColor: MyColors.lightblue,
+              leading: icon,
+              iconColor:iconColor,
+              hoverColor: MyColors.brown,
+              title:Text(title) ,
+              subtitle: Text(subtitle),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>route));
+                });
+}
 

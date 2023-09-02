@@ -37,11 +37,12 @@ class _InboxScreenState extends State<InboxScreen> {
 
 
     void saveNewTask() {
-    debugger();
+
     setState(() {
        
       TodoList.add([_controller.text, false]);
       Navigator.of(context).pop();
+      _controller.clear();
     });
   }
 
@@ -59,7 +60,7 @@ class _InboxScreenState extends State<InboxScreen> {
 
 
 //delete task
-  void deleteTask(int index) {
+  void deleteTask(int index,) {
     setState(() {
       TodoList.removeAt(index);
     });
@@ -71,19 +72,27 @@ class _InboxScreenState extends State<InboxScreen> {
         onPressed: creatNewTask,
         child: Icon(Icons.add),
       ),
-      backgroundColor: MyColors.lightyellow,
+     // backgroundColor: MyColors.lightblue,
       appBar: AppBar(
         title: CustomText(
-          text: "Inbox",
+          text: "I N B O X",
+          color: MyColors.white
         ),
         // elevation: 0,
         centerTitle: true,
       ),
-      body: ListView.builder(
+      body: Stack(
+        children: [
+          Container(
+child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,width: double.infinity,fit: BoxFit.fill,) ,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: ListView.builder(
         itemCount: TodoList.length,
         itemBuilder: (context, index) {
           return Todo_Task(
-              deleteFunction: (context) => deleteTask,
+              deleteFunction: (context) => deleteTask(index),
               taskname: TodoList[index][0],
               taskCompleted: TodoList[index][1],
               onChanged: (value) {
@@ -91,6 +100,6 @@ class _InboxScreenState extends State<InboxScreen> {
               });
         },
       ),
-    );
+    )]));
   }
 }
