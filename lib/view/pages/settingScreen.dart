@@ -26,7 +26,8 @@ class _SettingScreenState extends State<SettingScreen> {
       body: Stack(
         children: [
           Container(
-child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,width: double.infinity,fit: BoxFit.fill,) ,
+child:Image(image: AssetImage("images/background.jpeg"),
+height: double.infinity,width: double.infinity,fit: BoxFit.fill,) ,
           ),
           Padding(
         padding: const EdgeInsets.all(60.0),

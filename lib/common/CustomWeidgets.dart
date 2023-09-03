@@ -95,3 +95,41 @@ Widget CustomListTile(var title,var subtitle,context,var route,var icon,var icon
                 });
 }
 
+
+Widget feild(var text, var lable, controller,
+    {bool isObsecure = false, suffix}) {
+  return Container(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w800,
+              fontFamily: "Roboto Regular",
+              decorationColor: MyColors.brown),
+        ),
+        TextField(
+          cursorColor: MyColors.brown,
+          controller: controller,
+          obscureText: isObsecure,
+          decoration: InputDecoration(
+              suffixIcon: suffix,
+              hintText: lable,
+              // border: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              hintStyle: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "Roboto Regular",
+                  decorationColor: MyColors.brown,)),
+        ),
+        SizedBox(
+          height: 30,
+        )
+      ],
+    ),
+  );
+}

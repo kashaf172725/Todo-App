@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/CustomWeidgets.dart';
 import 'package:flutter_application_1/uttils/preferences.dart';
@@ -29,6 +31,7 @@ class _InboxScreenState extends State<InboxScreen> {
   ];
 //check box was tapped
   void checkBoxchanged(bool? value, int index) {
+   
     setState(() {
       TodoList[index][1] = !TodoList[index][1];
     });
@@ -63,19 +66,19 @@ class _InboxScreenState extends State<InboxScreen> {
     });
   }
 
-  checkfav(name) {
-    if (itemData != null) {
-      for (int i = 0; i < itemData; i++) {
-        if (itemData[i][0] == name) {
+  // checkfav(name) {
+  //   if (itemData != null) {
+  //     for (int i = 0; i < itemData; i++) {
+  //       if (itemData[i][0] == name) {
         
-          return true;
-        } else {
-          return false;
-        }
+  //         return true;
+  //       } else {
+  //         return false;
+  //       }
         
-      }
-    }
-  }
+  //     }
+  //   }
+  // }
 
   @override
   void initState() {
@@ -124,12 +127,12 @@ class _InboxScreenState extends State<InboxScreen> {
                     deleteFunction: (context) => deleteTask(index),
                     taskname: TodoList[index][0],
                     taskCompleted: TodoList[index][1],
-                    color: 
-                    //checkfav(TodoList[index][0]) 
-                        // ?
-                         MyColors.red,
-                        // :
-                         //MyColors.grey,
+                    // color: 
+                    // checkfav(TodoList[index][0]) 
+                    //     ?
+                    //      MyColors.red
+                    //     :
+                    //      MyColors.grey,
                     onPressed: () {
                       Preferences.saveitem(TodoList[index]);
                       getItem();

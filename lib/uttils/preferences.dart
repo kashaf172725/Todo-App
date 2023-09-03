@@ -28,9 +28,10 @@ else{
 
 
   
-// static clearPreferences()async{
-//    var pref = await SharedPreferences.getInstance();
-//    pref.clear();
-// }
+static clearPreferences(index)async{
+   var pref = await SharedPreferences.getInstance();
+   pref.clear();
+   getitem();
+}
 
 }

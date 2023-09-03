@@ -32,11 +32,6 @@ var itemData;
   }
   }
 
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +43,7 @@ var itemData;
         // elevation: 0,
         centerTitle: true,
       ),
-      body:itemData == null?CustomText(text: "No task is stared",color: MyColors.brown,fontSize: 40):Stack(
+      body:itemData == null?Center(child: CustomText(text: "No task is stared",color: MyColors.brown,fontSize: 30)):Stack(
         children: [
           Container(
 child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,width: double.infinity,fit: BoxFit.fill,) ,
@@ -62,6 +57,12 @@ child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,
               taskname:itemData[index][0],
               taskCompleted:itemData[index][1],
               color: MyColors.red,
+            onPressed:  () {
+                      // Preferences.clearPreferences(itemData[index]);
+                      // setState(() {
+                        
+                      // });
+                    },
              );
         },
       ),
