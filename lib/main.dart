@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/view/loginScreen.dart';
 import 'package:flutter_application_1/view/pages/Inbox.dart';
 import 'package:flutter_application_1/view/menu.dart';
+import 'package:flutter_application_1/view/pages/settingScreen.dart';
+import 'package:flutter_application_1/view/splash.dart';
 
 
 void main() {
@@ -15,8 +18,9 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
         debugShowCheckedModeBanner: false,
            theme: ThemeData(primarySwatch: Colors.brown,),
-           home: Menu() 
-          // home: InboxScreen()
+          // home: SplashPage() 
+          home: Menu()
+        // home: LoginPage(),
       
     );
     

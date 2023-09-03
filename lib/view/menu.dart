@@ -5,6 +5,8 @@ import 'package:flutter_application_1/common/CustomWeidgets.dart';
 import 'package:flutter_application_1/view/pages/Inbox.dart';
 import 'package:flutter_application_1/view/pages/aboutUs.dart';
 import 'package:flutter_application_1/view/pages/privacyScreen.dart';
+import 'package:flutter_application_1/view/pages/settingScreen.dart';
+import 'package:flutter_application_1/view/pages/stared.dart';
 
 import '../uttils/Todo_task.dart';
 import '../uttils/consts.dart';
@@ -20,9 +22,11 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   List MenueList = [
     ["Inbox", "All work list", InboxScreen(), Icon(Icons.inbox),MyColors.red],
-    ["Stared", "Your favourite work", InboxScreen(), Icon(Icons.star_border),MyColors.purple],
+    ["Stared", "Your favourite work", StaredScreen(), Icon(Icons.star_border),MyColors.purple],
     ["About us", "Learn to know about us", AboutUs(), Icon(Icons.people_alt_outlined),MyColors.black],
     ["Privacy", "Limitations", PrivacyScreen(), Icon(Icons.privacy_tip_sharp),MyColors.brown],
+    ["Setting", " ", SettingScreen(), Icon(Icons.settings),MyColors.splashblue],
+
 
     //["Inbox", "All work list", InboxScreen(), Icon(Icons.inbox),MyColors.Blue],
   ];
@@ -45,15 +49,15 @@ child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,
             padding: const EdgeInsets.all(25.0),
             child: Container(
                decoration: BoxDecoration(
-                      color: MyColors.Blue,
+                      color: MyColors.white,
                       borderRadius: BorderRadius.circular(12)),
-              height: 400,
+              height: 500,
               width: double.infinity,
             
              
               child: ListView.builder(
                 padding: EdgeInsets.all(25),
-                itemCount: 4,
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return Padding(
                       padding: const EdgeInsets.only(left: 25, right: 25),

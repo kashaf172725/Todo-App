@@ -8,15 +8,18 @@ class Todo_Task extends StatelessWidget {
   final String taskname;
   final bool taskCompleted;
   final Function(bool?)? onChanged;
+  final Function()? onPressed;
+
   final Function(BuildContext)? deleteFunction;
- // final bool color;
+  final dynamic color;
   
   Todo_Task({super.key,
-    required this.deleteFunction,
+    this.deleteFunction,
     required this.taskname,
     required this.taskCompleted,
-    required this.onChanged,
-    // required this.color,
+    this.onChanged,
+    this.onPressed,
+     this.color,
     
     });
 
@@ -59,12 +62,14 @@ class Todo_Task extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
-              
+                Spacer(),
+              //stared
+              IconButton(onPressed: onPressed,icon:Icon(Icons.star_border_outlined,),color: color,)
               
               ],
             ),
             decoration: BoxDecoration(
-                color: MyColors.Blue,
+                color: MyColors.white,
                 borderRadius: BorderRadius.circular(12)),
           ),
         ));

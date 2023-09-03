@@ -21,7 +21,8 @@ class PrivacyScreen extends StatelessWidget {
         children: [
           Container(
 child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,width: double.infinity,fit: BoxFit.fill,) ,
-          ),Padding(
+          ),
+          Padding(
         padding: const EdgeInsets.all(60.0),
         child: CustomText(
           fontSize: 25,
