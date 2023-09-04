@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -20,27 +21,29 @@ class _InboxScreenState extends State<InboxScreen> {
 
 //list of todo tiles
   List TodoList = [
-    [
-      "Do exersice",
-      false,
-    ],
-    [
-      "Do breakfast",
-      false,
-    ],
+   
   ];
 //check box was tapped
   void checkBoxchanged(bool? value, int index) {
-   
     setState(() {
-      TodoList[index][1] = !TodoList[index][1];
+      TodoList[index]["check"] = !TodoList[index]["check"];
+      Preferences.saveitem(TodoList);
+      getItem();
+    });
+  }
+
+  void checkBoxchangedImportant(bool? value, int index) {
+    setState(() {
+      TodoList[index]["important"] = !TodoList[index]["important"];
+      Preferences.saveitem(TodoList);
+      getItem();
     });
   }
 
   void saveNewTask() {
     setState(() {
-      TodoList.add([_controller.text, false]);
-
+      TodoList.add({"text":_controller.text, "check":false,"important":false});
+    Preferences.saveitem(TodoList);
       Navigator.of(context).pop();
       _controller.clear();
     });
@@ -87,11 +90,11 @@ class _InboxScreenState extends State<InboxScreen> {
     super.initState();
   }
 
-  var itemData;
+  var itemData = [];
   getItem() async {
     var res = await Preferences.getitem();
     if (res != null) {
-      itemData = res;
+      TodoList = res;
       setState(() {});
     }
   }
@@ -125,17 +128,16 @@ class _InboxScreenState extends State<InboxScreen> {
               itemBuilder: (context, index) {
                 return Todo_Task(
                     deleteFunction: (context) => deleteTask(index),
-                    taskname: TodoList[index][0],
-                    taskCompleted: TodoList[index][1],
-                    // color: 
-                    // checkfav(TodoList[index][0]) 
-                    //     ?
-                    //      MyColors.red
-                    //     :
-                    //      MyColors.grey,
+                    taskname: TodoList[index]["text"],
+                    taskCompleted: TodoList[index]["check"],
+                    color: 
+                   TodoList[index]["important"]
+                        ?
+                         MyColors.red
+                        :
+                         MyColors.grey,
                     onPressed: () {
-                      Preferences.saveitem(TodoList[index]);
-                      getItem();
+                     checkBoxchangedImportant(TodoList[index]["important"], index);
                     },
                     onChanged: (value) {
                       checkBoxchanged(value, index);

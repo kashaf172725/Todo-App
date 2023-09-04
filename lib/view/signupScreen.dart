@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                              if (password_controller.text != confirmpassword_controller.text)
                     showSnack(context, "Password not match");
                     else{
- Navigator.push(context, MaterialPageRoute(builder: (_) => Menu()) ); 
+ Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()) ); 
                     }
 
                            

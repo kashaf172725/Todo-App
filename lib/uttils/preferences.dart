@@ -6,13 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Preferences{
   static void saveitem(item)async{
 var pref = await SharedPreferences.getInstance();
-var data = await getitem();
-if(data != null)
-data.add(item);
-else{
-  data = [item];
-}
-  pref.setString("fav", jsonEncode(data));
+  pref.setString("fav", jsonEncode(item));
   // print("data saved");
   // print(item);
   }
@@ -20,9 +14,11 @@ else{
 
   static  getitem()async{
     var pref = await SharedPreferences.getInstance();
- var data =pref.getString("fav");
- if(data != null)
+ var data = pref.getString("fav");
+ if(data != null){
  return jsonDecode(data);
+ }
+ return [];
  
   }
 

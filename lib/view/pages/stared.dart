@@ -53,20 +53,25 @@ child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,
             child: ListView.builder(
         itemCount:itemData.length,
         itemBuilder: (context, index) {
-          return Todo_Task(
-              taskname:itemData[index][0],
-              taskCompleted:itemData[index][1],
+          return !itemData[index]["important"] ?Container() : Todo_Task(
+              taskname:itemData[index]["text"],
+              taskCompleted:itemData[index]["check"],
               color: MyColors.red,
             onPressed:  () {
-                      // Preferences.clearPreferences(itemData[index]);
-                      // setState(() {
-                        
-                      // });
+                     checkBoxchangedImportant(itemData[index]["important"], index);
                     },
              );
         },
       ),
     )])
     );
+  }
+
+    void checkBoxchangedImportant(bool? value, int index) {
+    setState(() {
+      itemData[index]["important"] = !itemData[index]["important"];
+      Preferences.saveitem(itemData);
+      getItem();
+    });
   }
 }
