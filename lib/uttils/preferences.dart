@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Preferences{
-  static void saveitem(item)async{
+  static  saveitem(item)async{
 var pref = await SharedPreferences.getInstance();
   pref.setString("fav", jsonEncode(item));
   // print("data saved");

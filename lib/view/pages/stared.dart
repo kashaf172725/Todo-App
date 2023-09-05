@@ -32,6 +32,15 @@ var itemData;
   }
   }
 
+
+ void checkBoxchangedImportant(bool? value, int index) {
+    setState(() {
+      itemData[index]["important"] = !itemData[index]["important"];
+      Preferences.saveitem(itemData);
+      getItem();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,11 +76,5 @@ child:Image(image: AssetImage("images/background.jpeg"),height: double.infinity,
     );
   }
 
-    void checkBoxchangedImportant(bool? value, int index) {
-    setState(() {
-      itemData[index]["important"] = !itemData[index]["important"];
-      Preferences.saveitem(itemData);
-      getItem();
-    });
-  }
+   
 }
